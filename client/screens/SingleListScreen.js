@@ -1,3 +1,8 @@
+/* 
+    Displays a single list containing all anime in the list, a description, and title.
+*/
+
+// imports
 import React from 'react';
 import {
     StyleSheet,
@@ -10,11 +15,13 @@ import { useSelector } from 'react-redux';
 import DeleteListButton from '../components/single_list/DeleteListButton';
 
 const SingleListScreen = props => {
-
+    // get list id from props then select the list using the list id
     const { listId } = props.route.params;
     const selectList = useSelector(state => state.anime.yourLists.find(list => list.id == listId));
 
     return (
+        // if there are no lists, display an empty view
+        // otherwise,  display the FlatList
         listId == null ?
             <View> </View> :
             <View style={{ flex: 1 }}>

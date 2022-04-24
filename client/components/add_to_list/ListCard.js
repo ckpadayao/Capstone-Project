@@ -1,3 +1,9 @@
+/*
+    Card component for watchlists. 
+    Displays on YourLists screen.
+*/
+
+//imports
 import React from 'react';
 import {
     StyleSheet,
@@ -11,13 +17,16 @@ import { useDispatch, useSelector } from 'react-redux';
 import * as animeAction from 'animo/redux/actions/animeAction';
 
 const ListCard = props => {
-    console.log("title " + props.title);
+
+    // dispatch for onPress function
     const dispatch = useDispatch();
 
+    // select list based id passed from props
     const selectListById = useSelector(
         state => state.anime.yourLists.find(list => list.id == props.listId)
     );
 
+    // select anime based on id passed from props
     const selectAnime = useSelector(
         state => state.anime.animeList.find(anime => anime._id == props.animeId)
     );
@@ -25,9 +34,11 @@ const ListCard = props => {
     return (
         <TouchableOpacity
             onPress={() => {
-
+                // on click, add anime to the watchlist if it is not apart of the list already
                 selectListById.list.find(anime => anime._id == props.animeId) == selectAnime ?
                     Alert.alert("Anime is in list!") :
+                    // dispatch action to add anime to the list
+                    // then navigate to the SingleList screen, passing the list's id as a prop
                     dispatch(animeAction.toggleList(props.listId, selectAnime))
                 props.navigation.navigate('SingleList', { listId: props.listId })
             }
@@ -53,6 +64,7 @@ const ListCard = props => {
     );
 }
 
+// stylesheet for list card
 const styles = StyleSheet.create({
     cardContainer: {
     },

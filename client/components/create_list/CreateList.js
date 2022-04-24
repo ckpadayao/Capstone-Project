@@ -1,3 +1,9 @@
+/*
+    Create list option if user wishes to add anime to a new watchlist.
+    Uses Formik and yup to submit/validate watchlist.
+*/
+
+// imports
 import React from 'react';
 import {
     StyleSheet,
@@ -14,17 +20,19 @@ import { Formik } from 'formik';
 import * as yup from 'yup';
 import uuid from 'react-native-uuid';
 
+
 const CreateList = props => {
     const dispatch = useDispatch();
+
+    // select anime based on anime's id passed from props
     const selectAnime = useSelector(
         state => state.anime.animeList.find(anime => anime._id == props.id)
     );
 
+    // schema for watchlist
     const formSchema = yup.object({
         title: yup.string(),
         desc: yup.string(),
-        // list: yup.array(),
-
     });
     return (
         <KeyboardAvoidingView
@@ -40,12 +48,14 @@ const CreateList = props => {
                         list: [selectAnime],
                     }}
                     validationSchema={formSchema}
+                    // on submit, create the list using the values
+                    // then, navigate to YourLists
                     onSubmit={(values) => {
-                        // console.log(values)
                         dispatch(animeAction.createYourList(values))
                         props.navigation.navigate('YourLists')
                     }}
                 >
+                    {/* display properties as they are changed by the user before submitting */}
                     {props => (
                         <View style={styles.form}>
                             <View style={styles.formGroup}>
@@ -74,13 +84,13 @@ const CreateList = props => {
                         </View>
 
                     )}
-
                 </Formik>
             </ScrollView>
         </KeyboardAvoidingView>
     )
 }
 
+// styles
 const styles = StyleSheet.create({
     formContainer: {
         margin: 20,

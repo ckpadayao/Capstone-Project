@@ -1,4 +1,8 @@
+/*
+    Recommended section list on Home screen.
+*/
 
+// imports
 import React from 'react';
 import {
     View, Text,
@@ -11,6 +15,7 @@ import { useSelector } from 'react-redux';
 
 const ReccSection = props => {
 
+    // select recommended anime from state
     const selectReccAnime = useSelector(
         state => state.anime.recList
     );

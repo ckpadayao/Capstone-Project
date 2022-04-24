@@ -1,10 +1,13 @@
+/*
+    Test Card component for Home screen.
+    On press, navigate to AnimeDetails screen, then pass off anime id 
+*/
 import React from 'react';
 import {
     StyleSheet,
     View, Text,
     TouchableOpacity,
     Image,
-    Touchable
 } from 'react-native';
 
 
@@ -27,7 +30,8 @@ const Card = props => {
                 </View>
                 <View style={styles.titleContainer}>
                     <Text style={styles.title}>
-                        {props.title.length > 14 ? props.title.slice(0, 12) + '...'
+                        {/* Display only 12 characters of an anime's title */}
+                        {props.title.length > 12 ? props.title.slice(0, 12) + '...'
                             : props.title}
                     </Text>
                 </View>
@@ -37,6 +41,7 @@ const Card = props => {
     );
 }
 
+// styles
 const styles = StyleSheet.create({
     cardContainer: {
         padding: 10,
@@ -50,7 +55,6 @@ const styles = StyleSheet.create({
         height: 170,
     },
     title: {
-        // color: 'rgba(255, 255, 255, 0.5)',
         fontSize: 11,
         fontWeight: '400',
         fontFamily: 'Futura',

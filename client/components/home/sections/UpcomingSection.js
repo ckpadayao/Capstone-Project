@@ -1,3 +1,8 @@
+/*
+    Upcoming section list displayed on Home screen.
+*/
+
+// imports
 import React, { useEffect } from 'react';
 import {
     View, Text,
@@ -9,13 +14,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import * as animeAction from 'animo/redux/actions/animeAction';
 
 const UpcomingSection = props => {
-
+    // dispatch action to fetch upcoming anime
     const dispatch = useDispatch();
-
     useEffect(() => {
         dispatch(animeAction.fetchUpcomingAnime());
     }, [dispatch]);
 
+    // select anime from upcomingList
     const selectUpcomingAnime = useSelector(
         state => state.anime.upcomingList
     );

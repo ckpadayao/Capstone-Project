@@ -1,3 +1,8 @@
+/* 
+    YourLists displays list of all watchlists a user has.
+*/
+
+// imports
 import React from 'react';
 import { View, } from 'react-native';
 import Lists from 'animo/components/your_lists/Lists';

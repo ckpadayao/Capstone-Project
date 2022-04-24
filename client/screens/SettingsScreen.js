@@ -1,5 +1,9 @@
+/* 
+    Settings contains the form to change recommendations
+*/
+
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { View } from 'react-native';
 import ChangeReccForm from '../components/settings/ChangeReccForm';
 
 const SettingsScreen = props => {
@@ -11,9 +15,5 @@ const SettingsScreen = props => {
         </View>
     );
 }
-
-const styles = StyleSheet.create({
-
-});
 
 export default SettingsScreen;

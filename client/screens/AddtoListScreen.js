@@ -1,9 +1,13 @@
+/*
+    Add anime to existing list using id that is passed from props.
+*/
+
+// imports
 import React from 'react';
 import {
     StyleSheet,
     View,
     Text,
-    FlatList,
 } from 'react-native';
 import { useSelector } from 'react-redux';
 import AddAnimetoList from 'animo/components/add_to_list/AddAnimetoList';
@@ -11,11 +15,10 @@ import AddAnimetoList from 'animo/components/add_to_list/AddAnimetoList';
 const AddtoListScreen = props => {
     const { animeId } = props.route.params;
 
+    // select anime to add using animeId
     const selectAnimeById = useSelector(
         state => state.anime.animeList.find(anime => anime._id == animeId)
     );
-
-    const selectLists = useSelector(state => state.anime.yourLists);
 
     return (
         <View>
@@ -32,16 +35,13 @@ const AddtoListScreen = props => {
     );
 }
 
+// styles
 const styles = StyleSheet.create({
     textContainer: {
         marginHorizontal: 16,
         marginTop: 10,
         marginBottom: -6
     },
-    text: {
-
-    },
-
 });
 
 export default AddtoListScreen;

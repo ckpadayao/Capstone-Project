@@ -1,3 +1,9 @@
+/*
+    Button that on click, routes users to the AddAnime screen.
+    Passes off the intended anime to add as a prop.
+*/
+
+//imports
 import {
     StyleSheet,
     View,
@@ -5,17 +11,15 @@ import {
     Text,
 } from 'react-native';
 import { useDispatch } from 'react-redux';
-import * as animeAction from 'animo/redux/actions/animeAction';
 
 
 const AddtoListButton = props => {
-    const dispatch = useDispatch();
-
     return (
         <View style={styles.buttonContainer}>
             <Pressable
                 style={styles.button}
                 onPress={() => {
+                    // navigate to AddAnime screen
                     props.navigation.navigate('AddAnime', { animeId: props.animeId })
                 }}
             >
@@ -27,6 +31,7 @@ const AddtoListButton = props => {
 
 export default AddtoListButton;
 
+// stylesheet
 const styles = StyleSheet.create({
     buttonContainer: {
         marginTop: '-15%',

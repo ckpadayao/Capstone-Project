@@ -1,3 +1,7 @@
+/* 
+    Home screen stylesheeet.
+*/
+
 import {
     StyleSheet,
 } from 'react-native';

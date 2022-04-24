@@ -1,12 +1,16 @@
+/* 
+    Get animeId from props then either pass the value on to AddtoList or CreateList.
+    These values will be later used by both of those screens to add an anime.
+*/
+
+// imports
 import React from 'react';
 import {
     StyleSheet,
     View,
-    Text,
     Button,
 } from 'react-native';
-import { useDispatch } from 'react-redux';
-import * as animeAction from '../redux/actions/animeAction';
+
 
 const AddAnimeScreen = props => {
     const { animeId } = props.route.params;

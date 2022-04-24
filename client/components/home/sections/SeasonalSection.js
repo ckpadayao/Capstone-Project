@@ -1,4 +1,8 @@
+/*
+    Seasonal section list in Home screen
+*/
 
+// imports
 import React, { useEffect } from 'react';
 import {
     View, Text,
@@ -10,13 +14,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import * as animeAction from 'animo/redux/actions/animeAction';
 
 const SeasonalSection = props => {
-
+    // dispatch action to fetch the seasonal anime
     const dispatch = useDispatch();
-
     useEffect(() => {
         dispatch(animeAction.fetchSeasonalAnime());
     }, [dispatch]);
 
+    // select seasonal anime from the state
     const selectSeasonalAnime = useSelector(
         state => state.anime.seasonalList
     );

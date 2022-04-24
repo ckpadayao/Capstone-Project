@@ -1,3 +1,8 @@
+/*
+    List of watchlists displayed in YourLists screen
+*/
+
+// imports
 import React from 'react';
 import {
     View,
@@ -7,7 +12,7 @@ import { useSelector } from 'react-redux';
 import ListCard from 'animo/components/your_lists/ListCard';
 
 const Lists = props => {
-
+    // select all lists
     const selectYourLists = useSelector(state => state.anime.yourLists);
     return (
         <View style={{ flex: 1 }}>

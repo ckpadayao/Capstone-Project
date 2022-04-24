@@ -1,3 +1,8 @@
+/* 
+    Home screen that displays 4 FlatList component.s
+*/
+
+// imports
 import React from 'react';
 import {
     View,
@@ -15,6 +20,7 @@ import SimilarGenreSection from '../components/home/sections/SimilarGenreSection
 
 
 const HomeScreen = props => {
+    // get the current time
     const time = new Date();
     const timeString = new Date().toLocaleTimeString();
 
@@ -70,8 +76,6 @@ const HomeScreen = props => {
                 </ScrollView>
             </SafeAreaView>
         </View >
-
-
     );
 }
 

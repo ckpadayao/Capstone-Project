@@ -1,3 +1,8 @@
+/*
+    Test section for Home screen.
+*/
+
+// imports
 import React, { useEffect } from 'react';
 import {
     StyleSheet,
@@ -10,14 +15,14 @@ import * as animeAction from 'animo/redux/actions/animeAction';
 
 
 const Section = props => {
-
-
+    // dispatch action to fetch all anime 
     const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(animeAction.fetchAnime());
     }, [dispatch]);
 
+    // select all anime then sort based on Math.random
     const selectAnime = useSelector(
         state => state.anime.animeList.sort(() => (Math.random() > 0.5) ? 1 : -1)
     );
@@ -46,6 +51,7 @@ const Section = props => {
     )
 }
 
+// styles
 const styles = StyleSheet.create({
     container: {
         marginTop: 10,

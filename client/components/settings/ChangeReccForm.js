@@ -1,4 +1,9 @@
+/*
+    Change recommendations based on two selected genres from this form.
+    This form uses Formik and yup to validate and submit the genres.
+*/
 
+// imports
 import React from 'react';
 import {
     StyleSheet,
@@ -14,6 +19,7 @@ import { Picker } from '@react-native-picker/picker';
 import { useDispatch } from 'react-redux';
 import * as animeAction from 'animo/redux/actions/animeAction';
 
+// schema that genres must follow
 const formSchema = yup.object({
     genre1: yup.string()
         .matches(/^(?!Select a Genre\b)/i, 'Please select a genre.')
@@ -42,6 +48,7 @@ const formSchema = yup.object({
 
 });
 
+// possible genres to select from
 const Genres = [
     "Select a Genre",
     "Action",
@@ -76,11 +83,14 @@ const ChangeReccForm = props => {
                     }}
                     validationSchema={formSchema}
                     onSubmit={(values) => {
+                        // navigate to Home
+                        // then dispatch action to fetch recommended anime and similar genre anime
                         props.navigation.navigate('HomeStack')
                         dispatch(animeAction.fetchRecommendedAnime(values))
                         dispatch(animeAction.fetchSimilarGenreAnime(values.genre1))
                     }}
                 >
+                    {/* set values displayed based on selection */}
                     {props => (
                         <View style={styles.formContainer}>
                             <View style={styles.formGroup}>
@@ -108,6 +118,7 @@ const ChangeReccForm = props => {
                                         props.setFieldValue('genre2', item)
                                     }}
                                 >
+                                    {/* map genres to Picker component */}
                                     {Genres.map((item, index) => {
                                         return <Picker.Item label={item} value={item} key={index} />
                                     })}
@@ -130,6 +141,7 @@ const ChangeReccForm = props => {
     );
 }
 
+// styles
 const styles = StyleSheet.create({
     formContainer: {
         margin: 20,

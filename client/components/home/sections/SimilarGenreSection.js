@@ -1,3 +1,8 @@
+/*
+    More of What you Love section list displayed in Home screen.
+*/
+
+// imports
 import React from 'react';
 import {
     View, Text,
@@ -8,6 +13,7 @@ import Card from 'animo/components/home/Card';
 import { useSelector } from 'react-redux';
 
 const SimilarGenreSection = props => {
+    // select anime for more of what you love from similarGenreList
     const selectSimilarGenreAnime = useSelector(
         state => state.anime.similarGenreList
     );

@@ -9,7 +9,6 @@ import {
 
 
 const Card = props => {
-    console.log(props.listId, props.animeId);
     return (
         <TouchableOpacity
             onPress={() => props.navigation.navigate('RemoveAnime',

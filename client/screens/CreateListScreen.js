@@ -1,3 +1,6 @@
+/* 
+    Create a list with the anime passed from props.
+*/
 import React from 'react';
 import { View, } from 'react-native';
 import CreateList from 'animo/components/create_list/CreateList';

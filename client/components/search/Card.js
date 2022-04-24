@@ -1,3 +1,7 @@
+/*
+    Card component for Search screen.
+*/
+
 import React from 'react';
 import {
     View, Text,
@@ -10,6 +14,7 @@ import { styles } from 'animo/assets/styles/search';
 const Card = props => {
     return (
         <TouchableOpacity
+            // navigate to AnimeDetails and pass off anime id
             onPress={() => props.navigation.navigate('AnimeDetails',
                 { animeId: props.id }
             )}
@@ -26,6 +31,7 @@ const Card = props => {
                 </View>
                 <View style={styles.titleContainer}>
                     <Text style={styles.title}>
+                        {/* slice title if title is > 17 characters */}
                         {props.title.length > 17 ? props.title.slice(0, 17) + '...'
                             : props.title}
                     </Text>

@@ -1,3 +1,9 @@
+/*
+    App navigator using stacks and tabs. 
+    Each tab uses navigator functions created.
+*/
+
+// imports
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -5,6 +11,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { MaterialIcons } from '@expo/vector-icons'
 import { Text, Dimensions } from 'react-native';
 
+// imports for screens
 import HomeScreen from '../screens/HomeScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import YourListsScreen from '../screens/YourListsScreen';
@@ -19,6 +26,7 @@ import AddtoListScreen from '../screens/AddtoListScreen';
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
+// Home
 function HomeNavigator() {
     return (
         <Stack.Navigator>
@@ -74,6 +82,7 @@ function HomeNavigator() {
     );
 }
 
+// YourLists
 function YourListsNavigator() {
     return (
         <Stack.Navigator>
@@ -101,6 +110,7 @@ function YourListsNavigator() {
     );
 }
 
+// Search
 function SearchNavigator() {
     return (
         <Stack.Navigator>
@@ -139,6 +149,7 @@ function SearchNavigator() {
 }
 
 
+// complete app navigation
 function AppNavigator() {
 
     return (

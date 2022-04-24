@@ -1,4 +1,8 @@
+/*
+    Displays list of watchlists for user to add anime to.
+*/
 
+// imports
 import React from 'react';
 import {
     View,
@@ -8,6 +12,7 @@ import ListCard from 'animo/components/add_to_list/ListCard';
 import { useSelector } from 'react-redux';
 
 const AddAnimetoList = props => {
+    // select all watchlists from state
     const selectYourLists = useSelector(state => state.anime.yourLists);
     return (
         <View>

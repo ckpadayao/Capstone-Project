@@ -1,3 +1,8 @@
+/*
+    Button to delete watchlist.
+*/
+
+// imports
 import {
     StyleSheet,
     View,
@@ -15,6 +20,8 @@ const DeleteListButton = props => {
             <Pressable
                 style={styles.button}
                 onPress={() => {
+                    // navigate back to YourLists
+                    // then dispatch action to delete list 
                     props.navigation.navigate('YourListsStack');
                     dispatch(animeAction.deleteYourList(props.listId));
                 }}
@@ -27,6 +34,7 @@ const DeleteListButton = props => {
 
 export default DeleteListButton;
 
+// styles
 const styles = StyleSheet.create({
     buttonContainer: {
         marginTop: '70%',

@@ -1,3 +1,9 @@
+/*
+    Button dispatches action to remove anime from watchlist.
+    Then, navigates user back to SingleList screen with the list's id.
+*/
+
+//imports
 import {
     StyleSheet,
     View,
@@ -17,7 +23,6 @@ const RemoveFromListButton = props => {
                 onPress={() => {
                     dispatch(animeAction.removeFromList(props.listId, props.animeId))
                     props.navigation.navigate('SingleList', { listId: props.listId })
-                    console.log(props.listId, "|", props.animeId)
                 }}
             >
                 <Text style={styles.buttonText}> Remove from List </Text>
@@ -28,6 +33,7 @@ const RemoveFromListButton = props => {
 
 export default RemoveFromListButton;
 
+// styles
 const styles = StyleSheet.create({
     buttonContainer: {
         marginTop: '-15%',

@@ -1,3 +1,8 @@
+/*
+    Test Remove anime Button. 
+*/
+
+// imports
 import {
     StyleSheet,
     View,
@@ -16,6 +21,8 @@ const RemoveButton = props => {
             <Pressable
                 style={styles.button}
                 onPress={() => {
+                    // remove anime from watchlists
+                    // then, navigate to YourLists with listId
                     dispatch(animeAction.removeFromList(props.animeId))
                     props.navigation.navigate('YourLists', { listId: props.listId })
                 }}
@@ -28,6 +35,8 @@ const RemoveButton = props => {
 
 export default RemoveButton;
 
+
+// styles
 const styles = StyleSheet.create({
     buttonContainer: {
         marginTop: '-15%',

@@ -1,3 +1,7 @@
+/* 
+    Redux actions to retrieve anime from server.
+*/
+
 export const FETCH_ANIME_LIST = 'FETCH_ANIME_LIST';
 export const FETCH_RECOMMENDED_ANIME = 'FETCH_RECOMMENDED_ANIME';
 export const FETCH_SEASONAL_ANIME = 'FETCH_SEASONAL_ANIME';
@@ -10,11 +14,11 @@ export const REMOVE_FROM_LIST = 'REMOVE FROM LIST';
 
 import { allAnime, recAnime, similarGenreAnime, seasonalAnime, upcomingAnime } from 'animo/redux/actionURLs.js';
 
+// fetch all anime from server
 export const fetchAnime = () => {
     return async dispatch => {
 
         const result = await fetch(allAnime);
-        console.log(result);
 
         const resultData = await result.json();
 
@@ -25,6 +29,7 @@ export const fetchAnime = () => {
     }
 }
 
+// fetch all recommended anime using two selected genres
 export const fetchRecommendedAnime = ({ genre1, genre2 }) => {
 
     return async dispatch => {
@@ -32,6 +37,7 @@ export const fetchRecommendedAnime = ({ genre1, genre2 }) => {
 
         const responseData = await response.json();
 
+        // select only 8 of them
         const slicedData = responseData.slice(0, 8);
 
         dispatch({
@@ -41,6 +47,7 @@ export const fetchRecommendedAnime = ({ genre1, genre2 }) => {
     }
 }
 
+// fetch similar genre anime for More of What you Love
 export const fetchSimilarGenreAnime = (genre) => {
     return async dispatch => {
         const response = await fetch(similarGenreAnime + genre);
@@ -54,6 +61,7 @@ export const fetchSimilarGenreAnime = (genre) => {
     }
 }
 
+// fetch seasonal anime
 export const fetchSeasonalAnime = () => {
     return async dispatch => {
         const response = await fetch(seasonalAnime);
@@ -67,6 +75,7 @@ export const fetchSeasonalAnime = () => {
     }
 }
 
+// fetch upcoming anime
 export const fetchUpcomingAnime = () => {
     return async dispatch => {
         const response = await fetch(upcomingAnime);
@@ -80,8 +89,8 @@ export const fetchUpcomingAnime = () => {
     }
 }
 
+// create a list using the following payloads
 export const createYourList = ({ id, title, desc, list }) => {
-    // console.log("title " + title + ' desc ' + desc)
     return {
         type: CREATE_YOUR_LIST,
         payload: {
@@ -94,6 +103,7 @@ export const createYourList = ({ id, title, desc, list }) => {
     }
 }
 
+// delete the list using the list id
 export const deleteYourList = (listId) => {
     return {
         type: DELETE_YOUR_LIST,
@@ -103,6 +113,7 @@ export const deleteYourList = (listId) => {
     }
 }
 
+// add to list using the list id and the anime object
 export const toggleList = (listId, anime) => {
     return {
         type: TOGGLE_LIST,
@@ -113,6 +124,7 @@ export const toggleList = (listId, anime) => {
     }
 }
 
+// remove the anime from the list using the list and anime id
 export const removeFromList = (listId, animeId) => {
     return {
         type: REMOVE_FROM_LIST,

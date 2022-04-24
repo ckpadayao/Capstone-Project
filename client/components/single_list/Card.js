@@ -1,3 +1,8 @@
+/*
+    Card component for SingleList screen. 
+*/
+
+// imports
 import React from 'react';
 import {
     StyleSheet,
@@ -11,6 +16,7 @@ const Card = props => {
     return (
         <View>
             <TouchableOpacity
+                // navigate to AnimeDetails with animeId, listId, and routedFrom
                 onPress={() => props.navigation.navigate('AnimeDetails',
                     {
                         animeId: props.animeId,
@@ -28,6 +34,7 @@ const Card = props => {
                         resizeMode="cover"
                     />
                     <Text style={styles.itemText}>
+                        {/* slice title if title > 16 */}
                         {props.title.length > 16 ? props.title.slice(0, 16) + '...'
                             : props.title}
                         {/* {props.title} */}
@@ -39,6 +46,7 @@ const Card = props => {
     );
 }
 
+// styles
 const styles = StyleSheet.create({
     item: {
         margin: 6,
@@ -48,7 +56,6 @@ const styles = StyleSheet.create({
         height: 165,
     },
     itemText: {
-        // color: 'rgba(255, 255, 255, 0.5)',
         fontSize: 10,
         fontWeight: '400',
         fontFamily: 'Futura',

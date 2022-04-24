@@ -1,3 +1,8 @@
+/*
+    Card component for an anime that displays on the specified screen.
+    When clicked, navigates user to AnimeDetails screen with the anime's id as a prop.
+*/
+
 import React from 'react';
 import {
     StyleSheet,
@@ -12,6 +17,8 @@ import {
 const Card = props => {
     return (
         <TouchableOpacity
+            // navigate to AnimeDetails screen 
+            // pass of anime id
             onPress={() => props.navigation.navigate('AnimeDetails',
                 { animeId: props.id }
             )}
@@ -29,17 +36,18 @@ const Card = props => {
                     </View>
                     <View style={styles.titleContainer}>
                         <Text style={styles.title}>
+                            {/* Display only 11 characters in title if title > 11 */}
                             {props.title.length > 11 ? props.title.slice(0, 11) + '...'
                                 : props.title}
                         </Text>
                     </View>
                 </View>
             </SafeAreaView>
-
         </TouchableOpacity>
     );
 }
 
+// stylesheet
 const styles = StyleSheet.create({
     cardContainer: {
     },

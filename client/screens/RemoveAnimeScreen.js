@@ -1,10 +1,14 @@
+/* 
+    Remove an anime from a list using the list and anime ids passed from props
+*/
+
+// imports
 import React from 'react';
 import {
     StyleSheet,
     View,
     ScrollView,
     SafeAreaView,
-    Button
 } from 'react-native';
 import SimilarList from 'animo/components/anime_details/SimilarList';
 import AnimeInfo from 'animo/components/anime_details/AnimeInfo';
@@ -39,8 +43,8 @@ const RemoveAnimeScreen = props => {
     );
 }
 
+// styles
 const styles = StyleSheet.create({
-
     container: {
         flex: 1,
     },

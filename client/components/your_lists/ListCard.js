@@ -1,3 +1,8 @@
+/*
+    ListCard component for YourLists screen.
+*/
+
+// imports
 import React from 'react';
 import {
     StyleSheet,
@@ -11,6 +16,7 @@ import {
 const ListCard = props => {
     return (
         <TouchableOpacity
+            // navigate to SingleList with listId
             onPress={() => props.navigation.navigate('SingleList',
                 { listId: props.id }
             )}
@@ -24,6 +30,7 @@ const ListCard = props => {
                 <View style={styles.cardContainer}>
                     <View style={styles.titleContainer}>
                         <Text style={styles.title}>
+                            {/* slice title of list if > 16 */}
                             {props && props.title && props.title.length > 16 ? props.title.slice(0, 16) + '...'
                                 : props.title}
                         </Text>
@@ -35,6 +42,7 @@ const ListCard = props => {
     );
 }
 
+// styles
 const styles = StyleSheet.create({
     imageContainer: {
         marginLeft: 1,
